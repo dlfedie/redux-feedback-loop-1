@@ -1,19 +1,19 @@
 import React, {Component} from 'react';
 import Header from '../Header/Header'
 
-class Comments extends Component {
+class Review extends Component {
     goToNext = () => {
-        this.props.history.push('/review');
+        this.props.history.push('/');
     }
     render() {
         return (
             <div>
                 <Header />
-                <h2>Any comments you want to leave?</h2>
-                <button onClick={this.goToNext}>Next</button>
+                <h2>Review</h2>
+                <button onClick={this.goToNext}>Submit</button>
             </div>
         )
     }
 }
 
-export default Comments;
+export default Review;
