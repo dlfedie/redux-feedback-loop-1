@@ -9,7 +9,7 @@ class Review extends Component {
         return (
             <div>
                 <Header />
-                <h2>Review</h2>
+                <h2>Review Your Feedback</h2>
                 <button onClick={this.goToNext}>Submit</button>
             </div>
         )
