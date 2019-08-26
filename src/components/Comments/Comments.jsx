@@ -1,28 +1,36 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Header from '../Header/Header'
+import { connect } from 'react-redux';
 
 class Comments extends Component {
-    goToNext = () => {
+    state = {
+        comments: ''
+    }
+
+    selectComments = (event) => {
+        this.setState({
+             comments: event.target.value
+        })
+    }
+
+    handleAddComments = () => {
+        this.props.dispatch({
+            type: 'NEW_COMMENTS_FEEDBACK',
+            payload: this.state
+        })
         this.props.history.push('/review');
     }
+
     render() {
         return (
             <div>
                 <Header />
                 <h2>Any comments you want to leave?</h2>
-                <select>
-                    <option selected value=""></option>
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-                <button onClick={this.goToNext}>Next</button>
+                <input onChange={this.selectComments}/>
+                <button onClick={this.handleAddComments}>Next</button>
             </div>
         )
     }
 }
 
-export default Comments;
+export default connect()(Comments);

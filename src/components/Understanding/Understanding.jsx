@@ -1,16 +1,32 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header'
+import {connect} from 'react-redux';
 
 class Understanding extends Component {
-    goToNext = () => {
+    state = {
+        understanding: ''
+    }
+
+    selectUnderstanding = (event) => {
+        this.setState({
+            understanding: Number(event.target.value)
+        })
+    }
+
+    handleAddUnderstanding = () => {
+        this.props.dispatch({
+            type: 'NEW_UNDERSTANDING_FEEDBACK',
+            payload: this.state
+        })
         this.props.history.push('/support');
     }
+
     render() {
         return (
             <div>
                 <Header />
                 <h2>How well are you understanding the content?</h2>
-                <select>
+                <select onChange={this.selectUnderstanding}>
                     <option selected value=""></option>
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -19,10 +35,10 @@ class Understanding extends Component {
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
-                <button onClick={this.goToNext}>Next</button>
+                <button onClick={this.handleAddUnderstanding}>Next</button>
             </div>
         )
     }
 }
 
-export default Understanding;
+export default connect()(Understanding);
