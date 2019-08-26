@@ -1,30 +1,33 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header'
 
+
 class Feeling extends Component {
     goToNext = () => {
         this.props.history.push('/understanding');
     }
 
-    state = {
-        feeling: ''
-    }
+    // state = {
+    //     feeling: ''
+    // }
 
-    handleChange(event) {
-        this.setState({
-            feeling: event.target.value
-        });
-    }
+    // handleChange(event) {
+    //     this.setState({
+    //         feeling: event.target.value
+    //     });
+    // }
+
+
 
     render() {
 
-        console.log(this.state);
+        // console.log(this.state);
   
         return (
             <div>
                 <Header />
                 <h2>How are you feeling today?</h2>
-                <lable><input 
+                {/* <lable><input 
                     type="radio" 
                     value="0"
                     checked={this.state.feeling === "0"}
@@ -59,12 +62,12 @@ class Feeling extends Component {
                     value="5"
                     checked={this.state.feeling === "5"}
                     onChange={this.handleChange}
-                />5</lable>
+                />5</lable> */}
 
 
 
 
-                {/* <select>
+                <select>
                     <option selected value=""></option>
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -72,7 +75,7 @@ class Feeling extends Component {
                     <option value="3">3</option>
                     <option value="4">4</option>
                     <option value="5">5</option>       
-                </select> */}
+                </select>
                 <button onClick={this.goToNext}>Next</button>
             </div>
         )
